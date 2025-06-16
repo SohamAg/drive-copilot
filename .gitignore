@@ -1,0 +1,6 @@
+venv/
+
+backend/__pycache__/
+backend/user_data/
+backend/.env
+*tempCodeRunnerFile.py
