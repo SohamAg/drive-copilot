@@ -121,7 +121,10 @@ def load_drive_files(user_id: str, force: bool = Query(False, description="Reloa
 
     # fast-exit
     if os.path.exists(meta_path) and not force:
-        return {"message": "Metadata already exists – skipping. Use ?force=true to reload."}
+        return {"message": "Metadata already exists – skipping. Force it to reload if you changed your files"}
+
+    if force:
+        clear_downloads(user_id)  # 🔥 Clear downloaded files on force reload
 
     # checking for tokens and access
     tok_path = f"user_data/{user_id}/tokens.json"
@@ -167,6 +170,12 @@ def clear_downloads(user_id: str):
         print(f"🧹 Cleared old downloads for {user_id}")
     os.makedirs(downloads_path, exist_ok=True)
     
+def clear_user_cache(user_id: str):
+    user_dir = f"user_data/{user_id}/downloads"
+    if os.path.exists(user_dir):
+        shutil.rmtree(user_dir)
+        print(f"🧹 Cleared download cache for {user_id}")
+    
 #indexing the metadata into vector + inverted
 @app.get("/drive/index_metadata")
 def index_metadata(user_id: str, force: bool = Query(False, description="Rebuild even if index exists")):
@@ -178,7 +187,7 @@ def index_metadata(user_id: str, force: bool = Query(False, description="Rebuild
 
     # fast exit
     if not force and all(os.path.exists(p) for p in (idx_path, emb_path, map_path, inv_path)):
-        return {"message": "✅ Index already exists – skipping. Use ?force=true to rebuild."}
+        return {"message": "✅ Index already exists – skipping. Force it to reload if you changed your files"}
 
     # Load the metadata
     metadata_path = f"{base}/drive_files.json"
