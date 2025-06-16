@@ -94,7 +94,7 @@ Opens a browser tab → log in with Google → start querying your Drive.
 ## 🧪 Example Prompts
 
 ```
-You can ask it anything about a file/folder. Mentioning the name, or atleast something similar to the name, is imperative.
+You can ask it anything about any file/folder of largely any format. However, be sure to include in your query something that resembles to matches the file name you are looking for.
 ```
 
 ---
