@@ -179,20 +179,20 @@ def search_topk(user_id: str, query: str, top_k: int = 5):
 #     results = search_similar_metadata(user_id, q_emb, keywords, k, 0.7)
 #     return q_type, results
 
-if __name__ == "__main__":
-    test_queries = [
-        "Can you open harshit birthday video?",
-        # "Where is the OphthMate folder?",
-        # "I want information about diabetic retinopathy in India",
-        # "Can you show the image of our graduation ceremony?",
-        # "Find the CSV with my stock trades from March",
-        # "What did the PDF summary say about the client onboarding?"
-    ]
+# if __name__ == "__main__":
+#     test_queries = [
+#         "Can you open harshit birthday video?",
+#         # "Where is the OphthMate folder?",
+#         # "I want information about diabetic retinopathy in India",
+#         # "Can you show the image of our graduation ceremony?",
+#         # "Find the CSV with my stock trades from March",
+#         # "What did the PDF summary say about the client onboarding?"
+#     ]
 
-    user_id = "110913943088152059091"  # Replace with actual user ID
-    for q in test_queries:
-        print("\n==============================")
-        print(f"🧠 Running Query: {q}")
-        results = search_topk(user_id, q)
-        print("→ Final Search Results:")
-        print("🔍 Top Results:\n", results if results else "No results found.")
+#     user_id = "110913943088152059091"  # Replace with actual user ID
+#     for q in test_queries:
+#         print("\n==============================")
+#         print(f"🧠 Running Query: {q}")
+#         results = search_topk(user_id, q)
+#         print("→ Final Search Results:")
+#         print("🔍 Top Results:\n", results if results else "No results found.")

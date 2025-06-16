@@ -47,7 +47,7 @@ def normalize_extracted_type(user_type: str) -> str:
 def normalize_type(mime: str) -> str:
     mime = mime.lower()
 
-    # ───── Google-native types ─────
+    # Google Native
     if mime == "application/vnd.google-apps.document": return "google_doc"
     if mime == "application/vnd.google-apps.spreadsheet": return "google_sheet"
     if mime == "application/vnd.google-apps.presentation": return "google_slide"
@@ -56,12 +56,12 @@ def normalize_type(mime: str) -> str:
     if mime == "application/vnd.google-apps.drawing": return "drawing"
     if mime == "application/vnd.google-apps.script": return "script"
 
-    # ───── Uploaded Office formats ─────
+    # Office Formats
     if "spreadsheetml.sheet" in mime or mime.endswith("xlsx"): return "xlsx"
     if "presentationml.presentation" in mime or mime.endswith("pptx"): return "pptx"
     if "msword" in mime or "wordprocessingml.document" in mime or mime.endswith("docx"): return "docx"
 
-    # ───── Common formats ─────
+    # Common formats
     if mime == "application/pdf": return "pdf"
     if "csv" in mime: return "csv"
     if "json" in mime: return "json"
@@ -72,17 +72,17 @@ def normalize_type(mime: str) -> str:
     if "zip" in mime or "compressed" in mime: return "archive"
     if "font" in mime: return "font"
 
-    # ───── Media types ─────
+    # Media
     if mime.startswith("image/"): return "image"
     if mime.startswith("video/"): return "video"
     if mime.startswith("audio/"): return "audio"
 
-    # ───── Extension-based fallback (defensive) ─────
+    # Fallbacks
     if mime.endswith(("png", "jpg", "jpeg", "webp")): return "image"
     if mime.endswith(("mp4", "mkv", "avi", "mov", "webm")): return "video"
     if mime.endswith(("mp3", "wav", "ogg")): return "audio"
 
-    # ───── Fallback to subtype ─────
+    # Maha Fallback
     return mime.split("/")[-1]
 
 
