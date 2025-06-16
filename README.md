@@ -44,8 +44,8 @@ cd drive-copilot
 Create **`backend/.env`** with:
 
 ```env
-GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_CLIENT_ID=699184391259-1j8dqqico7bef02g8j9qsi3gk0smflju.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
 GOOGLE_REDIRECT_URI=http://localhost:8000/auth/callback
 
 OPENAI_API_KEY=sk-...your-openai-key...
