@@ -5,9 +5,6 @@ It combines semantic search (MiniLM + FAISS) with Retrieval‑Augmented Genera
 
 ---
 
-## NOTE FOR THIRD LAYER TESTERS
-You will be unable to log in into your google accounts since they are not added as test users. As such, please let me know ASAP with the emails so that I can add them as test users. I sent an email regarding this. You also will need an OpenAI API key. If needed, I can generate a test OpenAI key for you, kindly let me know. Rest can be setup by following the instructions in the doc below:
-
 ## 💡 Key Features
 
 |                            |                                                                    |
